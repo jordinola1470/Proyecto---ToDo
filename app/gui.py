@@ -9,7 +9,7 @@ class Marco(tk.Frame):
         self.pack()
 
     def llenado_tareas(self):
-        self.etiqueta = tk.Label(self,text='Tarea',bg='gray',font=('Arial',16,'bold'))
+        self.etiqueta = tk.Label(self,text='Tarea',bg='gray',font=fuente_marcos)
         self.etiqueta.place(x=5,y=15)
 
 
@@ -21,7 +21,7 @@ class Marco(tk.Frame):
 
     def tabla_general(self):
 
-        self.tabla_tareas = tk.LabelFrame(self,text="Lista Pendientes",font=('Arial',14),)
+        self.tabla_tareas = tk.LabelFrame(self,text="Lista Pendientes",font=fuente_marcos)
         self.tabla_tareas.place(x=5,y=60)
 
         self.etiquetas = tk.Label(self.tabla_tareas, text=self.entrada.get())
