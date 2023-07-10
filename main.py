@@ -8,16 +8,12 @@ def main():
     root.resizable(width=False,height=False)
     root.geometry('700x750')
     
-
-
     marco = Marco(root,bg='gray',width=700,height=750)
     marco.llenado_tareas()
-    marco.tabla_general()
 
 
     marco.place(x=0,y=0)
 
-    
     
     root.mainloop()
 

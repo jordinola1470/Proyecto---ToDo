@@ -1,6 +1,7 @@
 import tkinter as tk
-from config import *
-
+from tkinter import ttk
+from modelo.funciones import registro_tareas
+# from app.config import *
 
 class Marco(tk.Frame):
     def __init__(self, root=None,bg=None,width=None,height=None):
@@ -9,20 +10,25 @@ class Marco(tk.Frame):
         self.pack()
 
     def llenado_tareas(self):
-        self.etiqueta = tk.Label(self,text='Tarea',bg='gray',font=fuente_marcos)
+        self.etiqueta = tk.Label(self,text='Tarea',bg='gray',font= ('Arial',16,'bold'))
         self.etiqueta.place(x=5,y=15)
-
 
         self.entrada = tk.Entry(self,width=60)
         self.entrada.place(x=65,y=15)
 
-        self.boton_agregar = tk.Button(self,text="ADD",command= lambda : [print(self.entrada.get()), self.entrada.delete(0,tk.END)])
+        self.boton_agregar = ttk.Button(self,
+                                       text="ADD",
+                                       width=3,
+                                       command= lambda : [registro_tareas(self.tabla_tareas,self.entrada.get()), 
+                                                          self.entrada.delete(0,tk.END)])
+        
         self.boton_agregar.place(x=625,y=15)
 
-    def tabla_general(self):
-
-        self.tabla_tareas = tk.LabelFrame(self,text="Lista Pendientes",font=fuente_marcos)
+        self.tabla_tareas = tk.LabelFrame(self,
+                                          text="Pendientes",
+                                          labelanchor='ne',
+                                          font=('Arial',14,'bold'),
+                                          bd=4)
+        
         self.tabla_tareas.place(x=5,y=60)
-
-        self.etiquetas = tk.Label(self.tabla_tareas, text=self.entrada.get())
-        self.etiquetas.pack()
+        
